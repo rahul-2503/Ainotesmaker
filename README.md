@@ -1,72 +1,69 @@
 AI Notes Maker 🧠
-An intelligent tool to help you generate concise notes from any content! Whether it's an article, research paper, or PDF, this app summarizes it into bullet-point style notes.
 
-🚀 Features:
-Text Summarization: Paste any text, and it will be summarized automatically.
+A simple and powerful AI-based notes generator that converts long text or PDFs into clean, concise bullet-point notes using state-of-the-art NLP models.
 
-PDF Support: Upload PDFs and get summarized notes without any hassle.
+This project runs fully offline using HuggingFace transformer models — perfect for students, researchers, or developers preparing study notes.
 
-No API Key Required: Works completely offline using Hugging Face's BART Model.
+🚀 Features
 
-Downloadable Notes: Once the notes are generated, download them as a .txt file.
+Text Summarization
+Paste any long text and get crisp bullet-point notes.
 
-📜 How It Works:
-The AI Notes Maker uses Hugging Face's facebook/bart-large-cnn model for text summarization. After pasting text or uploading a PDF, it will generate concise bullet-point notes.
+PDF Support
+Upload PDFs and automatically extract + summarize content.
 
-🔧 Installation:
-Clone the Repository:
+Offline AI Model
+Uses Hugging Face’s facebook/bart-large-cnn — no API key needed.
 
-bash
-Copy
-Edit
+Web App UI
+Built using Streamlit for a clean, interactive interface.
+
+Download Notes
+Save generated notes as a .txt file.
+
+🧠 Tech Stack
+
+Python
+
+Streamlit – web UI
+
+Transformers (Hugging Face) – AI summarization
+
+PyPDF2 – PDF text extraction
+
+📦 Installation
+1️⃣ Clone the repository
 git clone https://github.com/your-username/ai-notes-maker.git
 cd ai-notes-maker
-Install Required Libraries:
 
-bash
-Copy
-Edit
+2️⃣ Create & activate a virtual environment (recommended)
+python -m venv venv
+venv\Scripts\activate   # Windows
+
+3️⃣ Install required libraries
 pip install -r requirements.txt
-streamlit — To build the web interface.
 
-transformers — To load the Hugging Face model.
 
-PyPDF2 — For extracting text from PDF files.
+If you don’t have requirements.txt, install manually:
 
-💻 Usage:
-Run the Streamlit App:
+pip install streamlit transformers PyPDF2 sentencepiece
 
-bash
-Copy
-Edit
+💻 Run the App
 streamlit run app.py
-Features in the Web App:
 
-Choose to paste your content or upload a PDF.
 
-Click "Generate Notes" to create summaries.
+App will start at:
 
-Once done, you can download the notes as a .txt file.
+http://localhost:8501
 
-🔍 Model Used:
-facebook/bart-large-cnn:
+📙 How It Works
 
-A transformer-based model pre-trained for summarization tasks.
+User pastes text or uploads a PDF
 
-Fine-tuned on the CNN/DailyMail dataset, making it highly efficient at summarizing long-form content.
+App extracts raw text
 
-🛠️ Customization:
-You can adjust the summarization length by modifying the model parameters.
+AI model (facebook/bart-large-cnn) summarizes it
 
-Use a different Hugging Face model by changing the model name in the code.
+Output converted into clean bullet points
 
-📝 License:
-This project is open-source and available under the MIT License.
-
-📌 Contributing:
-Feel free to fork this repository and create pull requests! Whether it's improving the summarization quality or adding new features like multilingual support or Word document upload, your contributions are welcome!
-
-😎 Screenshots:
-
-![image](https://github.com/user-attachments/assets/1b5aab87-8201-4f27-ace2-47c88fbb1588)
-
+User downloads .txt notes
