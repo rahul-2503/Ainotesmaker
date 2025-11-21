@@ -67,3 +67,8 @@ AI model (facebook/bart-large-cnn) summarizes it
 Output converted into clean bullet points
 
 User downloads .txt notes
+
+
+
+                        check out 
+              https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.app/
