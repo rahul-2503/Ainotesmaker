@@ -5,6 +5,8 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+⚡ **Live Demo:** [https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.app/](https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.app/)
+
 AI Notes Maker is an intelligent, privacy-first web application designed to automatically summarize long articles, research papers, and uploaded PDF documents into concise, structured bullet-point notes. 
 
 The application runs **fully offline** utilizing Hugging Face's BART Seq2Seq model, requiring no API keys, and keeping all your data private.
@@ -92,7 +94,7 @@ This repository is optimized for Streamlit Cloud deployment.
 2. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/) using your GitHub account.
 3. Click **Create app** and select your repository (`rahul-2503/Ainotesmaker`).
 4. Set the **Main file path** to `app.py` and click **Deploy**.
-5. Live deployment is configured at: [https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.io/](https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.io/)
+5. Live deployment is configured at: [https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.app/](https://rahul-2503-ainotesmaker-app-t7lwid.streamlit.app/)
 
 ### 🤗 Hugging Face Spaces
 1. Create a new Space on [Hugging Face](https://huggingface.co/new-space).
