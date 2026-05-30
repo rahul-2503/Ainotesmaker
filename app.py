@@ -1,13 +1,23 @@
+import os
+import platform
+
+# Redirect HF cache to D: drive locally on Windows to prevent C: drive running out of space
+if platform.system() == "Windows" and os.path.exists("D:\\"):
+    os.environ["HF_HOME"] = "D:/huggingface"
+
 import streamlit as st
 import PyPDF2
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 # Load summarization model (cached after first run)
 @st.cache_resource
 def load_model():
-    return pipeline("summarization", model="facebook/bart-large-cnn")
+    model_name = "facebook/bart-large-cnn"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+    return tokenizer, model
 
-summarizer = load_model()
+tokenizer, model = load_model()
 
 def extract_text_from_pdf(file):
     reader = PyPDF2.PdfReader(file)
@@ -34,9 +44,12 @@ def summarize_text(text):
     chunks = split_text(text)
     summaries = []
     for chunk in chunks:
-        summary = summarizer(chunk, max_length=150, min_length=40, do_sample=False)[0]["summary_text"]
+        inputs = tokenizer(chunk, max_length=1024, truncation=True, return_tensors="pt")
+        summary_ids = model.generate(inputs["input_ids"], max_length=150, min_length=40, do_sample=False)
+        summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
         summaries.append(summary)
     return "\n\n".join(summaries)
+
 
 # Streamlit UI
 st.title("🧠 AI Notes Maker")
